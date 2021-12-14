@@ -7,12 +7,16 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --watchAll=false --findRelatedTests --bail",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
     "react": "17.0.2",
-    "react-native": "0.66.3"
+    "react-native": "0.66.3",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.10.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -24,7 +28,8 @@
     "@types/react-native": "^0.66.4",
     "@types/react-test-renderer": "^17.0.1",
     "babel-jest": "^26.6.3",
-    "eslint": "^7.14.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "6.6.0",
     "husky": "^7.0.0",
     "jest": "^26.6.3",
     "lint-staged": "^12.1.2",
@@ -49,8 +54,7 @@
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
       "yarn eslint",
-      "yarn prettier --write",
-      "yarn test --watchAll=false --findRelatedTests --bail"
+      "yarn prettier --write"
     ]
   }
 }
