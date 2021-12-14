@@ -1,8 +1,14 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {TextInput} from '../../components';
 
 const SignInScreen = () => {
-  return <Text>Sign In Screen</Text>;
+  return (
+    <>
+      <TextInput />
+      <TextInput />
+      <TextInput />
+    </>
+  );
 };
 
 export default SignInScreen;
