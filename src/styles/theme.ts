@@ -15,7 +15,7 @@ export const darkColors = {
   accentSecondary: '#660700',
 };
 
-export const getTheme = (isDarkMode: boolean) => {
-  colors: isDarkMode ? darkColors : lightColors;
-  roundness: 4;
-};
+export const getTheme = (isDarkMode: boolean) => ({
+  colors: isDarkMode ? darkColors : lightColors,
+  roundness: 4,
+});

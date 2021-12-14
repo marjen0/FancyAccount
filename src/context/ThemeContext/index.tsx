@@ -1,4 +1,4 @@
-import React, {useState, ReactNode} from 'react';
+import React, {useState, ReactNode, SetStateAction, Dispatch} from 'react';
 import {useColorScheme} from 'react-native';
 import {createContext} from '../../hooks';
 import {getTheme} from '../../styles/theme';
@@ -7,7 +7,13 @@ interface IThemeContextProps {
   children: ReactNode;
 }
 
-const [useContext, ThemeContext] = createContext();
+interface IThemeContext {
+  theme: ReturnType<typeof getTheme>;
+  isDark: boolean;
+  setIsDark: Dispatch<SetStateAction<boolean>>;
+}
+
+const [useContext, ThemeContext] = createContext<IThemeContext>();
 
 export const useTheme = () => useContext();
 
