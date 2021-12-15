@@ -1,14 +1,16 @@
 import {DefaultTheme, DarkTheme} from '@react-navigation/native';
 
-export const lightColors = {
+const lightColors = {
   ...DefaultTheme.colors,
+  background: '#FFF',
   primary: '#003480',
   secondary: '#009FE3',
   accentPrimary: '#FEBA01',
   accentSecondary: '#660700',
 };
-export const darkColors = {
+const darkColors = {
   ...DarkTheme.colors,
+  background: '#FFF',
   primary: '#003480',
   secondary: '#009FE3',
   accentPrimary: '#FEBA01',
