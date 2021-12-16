@@ -2,7 +2,6 @@ import {DefaultTheme, DarkTheme} from '@react-navigation/native';
 
 const lightColors = {
   ...DefaultTheme.colors,
-  background: '#FFF',
   primary: '#003480',
   secondary: '#009FE3',
   accentPrimary: '#FEBA01',
@@ -11,7 +10,6 @@ const lightColors = {
 };
 const darkColors = {
   ...DarkTheme.colors,
-  background: '#FFF',
   primary: '#003480',
   secondary: '#009FE3',
   accentPrimary: '#FEBA01',

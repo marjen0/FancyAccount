@@ -45,6 +45,7 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
           source={{uri: 'https://placeimg.com/80/80/tech'}}
         />
         <TextInput
+          placeholderTextColor={theme.colors.text}
           autoCapitalize="none"
           placeholder="Username"
           value={username}
@@ -53,6 +54,7 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
         />
         <TextInput
           autoCapitalize="none"
+          placeholderTextColor={theme.colors.text}
           placeholder="Password"
           value={password}
           onChangeText={handlePasswordChange}

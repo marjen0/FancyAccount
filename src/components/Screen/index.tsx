@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {View} from 'react-native';
+import {View, SafeAreaView, StatusBar} from 'react-native';
 import {useTheme} from '../../context';
 import {getStyles} from './styles';
 
@@ -8,10 +8,17 @@ interface IScreenProps {
 }
 
 const Screen = ({children}: IScreenProps) => {
-  const {theme} = useTheme();
+  const {theme, isDark} = useTheme();
   const styles = getStyles(theme);
 
-  return <View style={styles.container}>{children}</View>;
+  return (
+    <>
+      <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} />
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.childrenContainer}>{children}</View>
+      </SafeAreaView>
+    </>
+  );
 };
 
 export default Screen;

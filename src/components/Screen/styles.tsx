@@ -2,7 +2,10 @@ import {StyleSheet} from 'react-native';
 
 export const getStyles = (_theme: ITheme) =>
   StyleSheet.create({
-    container: {
+    safeArea: {
+      flex: 1,
+    },
+    childrenContainer: {
       flex: 1,
       paddingHorizontal: 12,
       paddingVertical: 8,

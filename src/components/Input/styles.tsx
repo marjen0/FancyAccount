@@ -11,5 +11,6 @@ export const getStyles = (theme: ITheme) =>
       borderWidth: 2,
       borderRadius: theme.roundness,
       marginBottom: 18,
+      color: theme.colors.text,
     },
   });

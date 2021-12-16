@@ -24,7 +24,7 @@ const Button = ({
     backgroundColor: background ? theme.colors.primary : 'transparent',
   };
   const textStyles = {
-    color: background ? theme.colors.background : theme.colors.label,
+    color: background ? theme.colors.text : theme.colors.label,
   };
 
   return (
