@@ -11,7 +11,7 @@ const AccountScreen = () => {
   return (
     <Screen>
       <View style={styles.container}>
-        <Avatar />
+        <Avatar size="stretch" />
         <Text style={styles.detailsText}>John Doe</Text>
         <Text style={styles.detailsText}>Adress</Text>
         <Text style={styles.detailsText}>Phone Number</Text>

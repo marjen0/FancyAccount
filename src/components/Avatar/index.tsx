@@ -2,19 +2,24 @@ import React from 'react';
 import {Image} from 'react-native';
 
 import {useTheme} from '../../context';
-import {getStyles} from './styles';
+import {getStyles, getWidth} from './styles';
 
-const AccountScreen = () => {
+export type AvatarSize = 'icon' | 'small' | 'medium' | 'large' | 'stretch';
+interface IAvatarProps {
+  size: AvatarSize;
+}
+
+const Avatar = ({size}: IAvatarProps) => {
   const {theme} = useTheme();
   const styles = getStyles(theme);
-
+  const width = getWidth(size);
   return (
     <Image
       resizeMode="contain"
-      style={styles.avatar}
+      style={[styles.avatar, width]}
       source={{uri: 'https://placeimg.com/80/80/tech'}}
     />
   );
 };
 
-export default AccountScreen;
+export default Avatar;

@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
   const {theme, isDark} = useTheme();
-  const user = true;
+  const user = false;
 
   return (
     <NavigationContainer theme={{colors: theme.colors, dark: isDark}}>
