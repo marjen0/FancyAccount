@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import AuthStack from '../AuthStack';
 import MainStack from '../MainStack';
 import {useTheme} from '../../context';
-import type {IAuthState} from '../../core/reducers/auth';
+import {IRootState} from '../../core/store';
 import {logout} from '../../core/actions/auth';
 
 const Stack = createNativeStackNavigator();
@@ -37,7 +37,7 @@ const RootNavigator = ({
     </NavigationContainer>
   );
 };
-const mapStateToProps = (state: IAuthState) => {
+const mapStateToProps = (state: IRootState) => {
   const {isAuthenticated} = state.auth;
   return {
     isAuthenticated,

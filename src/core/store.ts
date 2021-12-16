@@ -13,4 +13,7 @@ const store = createStore(
 
 store.dispatch(getAuthTokensFromAsyncStorage());
 
+export type IRootState = ReturnType<typeof store.getState>;
+export type IAppDispatch = typeof store.dispatch;
+
 export default store;

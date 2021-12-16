@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import {connect, MapDispatchToProps, ConnectedProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {login} from '../../core/actions/auth';
-import type {IAuthState} from '../../core/reducers/auth';
+import {IRootState} from '../../core/store';
 import {TextInput, Screen, Button, Avatar} from '../../components';
 import {useTheme} from '../../context';
 import {getStyles} from './styles';
@@ -69,7 +69,7 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
   );
 };
 
-const mapStateToProps = (state: IAuthState) => {
+const mapStateToProps = (state: IRootState) => {
   const {isLoading, isAuthenticated} = state.auth;
   return {
     isLoading,

@@ -3,7 +3,7 @@ import {Text, View, Switch} from 'react-native';
 import {connect, MapDispatchToProps, ConnectedProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getUser} from '../../core/actions/user';
-import {IUserState} from '../../core/reducers/user';
+import {IRootState} from '../../core/store';
 import {Screen, Avatar} from '../../components';
 import {useTheme} from '../../context';
 import {getStyles} from './styles';
@@ -45,7 +45,7 @@ const AccountScreen = ({
   );
 };
 
-const mapStateToProps = (state: IUserState) => {
+const mapStateToProps = (state: IRootState) => {
   const {address, firstName, lastName, phone, image} = state.user;
   return {address, firstName, lastName, phone, image};
 };
