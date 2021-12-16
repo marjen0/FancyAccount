@@ -1,10 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import AuthStack from 'navigation/AuthStack';
-import MainStack from 'navigation/MainStack';
-import {useTheme} from '../../context';
 import {connect, ConnectedProps} from 'react-redux';
+import AuthStack from '../AuthStack';
+import MainStack from '../MainStack';
+import {useTheme} from '../../context';
 
 import type {IAuthState} from '../../core/reducers/auth';
 

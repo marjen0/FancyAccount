@@ -19,11 +19,11 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
   const {theme} = useTheme();
   const styles = getStyles(theme);
 
-  const [username, setusername] = useState<string | undefined>();
+  const [username, setUsername] = useState<string | undefined>();
   const [password, setPassword] = useState<string | undefined>();
 
   const handleusernameChange = (text: string) => {
-    setusername(text);
+    setUsername(text);
   };
 
   const handlePasswordChange = (text: string) => {
