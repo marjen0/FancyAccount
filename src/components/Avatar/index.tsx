@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image} from 'react-native';
+import {Image, ImageSourcePropType} from 'react-native';
 
 import {useTheme} from '../../context';
 import {getStyles, getWidth} from './styles';
@@ -7,9 +7,10 @@ import {getStyles, getWidth} from './styles';
 export type AvatarSize = 'icon' | 'small' | 'medium' | 'large' | 'stretch';
 interface IAvatarProps {
   size: AvatarSize;
+  source: ImageSourcePropType;
 }
 
-const Avatar = ({size}: IAvatarProps) => {
+const Avatar = ({size, source}: IAvatarProps) => {
   const {theme} = useTheme();
   const styles = getStyles(theme);
   const width = getWidth(size);
@@ -17,7 +18,7 @@ const Avatar = ({size}: IAvatarProps) => {
     <Image
       resizeMode="contain"
       style={[styles.avatar, width]}
-      source={{uri: 'https://placeimg.com/80/80/tech'}}
+      source={source}
     />
   );
 };

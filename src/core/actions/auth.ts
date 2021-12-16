@@ -32,11 +32,10 @@ export const getAuthTokensFromAsyncStorage = () => dispatch => {
 export const login =
   ({username, password}: {username: string; password: string}) =>
   dispatch => {
-    console.log('here', username, password);
-    const body = {username, password};
-    // TODO move data fetching to seperate file
+    const data = {username, password};
+    // TODO move data fetching to separate file
     axios
-      .post('https://vidqjclbhmef.herokuapp.com/credentials', body, {
+      .post('https://vidqjclbhmef.herokuapp.com/credentials', data, {
         headers: {
           'Content-type': 'application/json',
         },
@@ -55,4 +54,19 @@ export const login =
 
 export const logout = () => dispatch => {
   dispatch({type: ACTION.AUTH.LOGOUT});
+};
+
+export const tokenConfig = getState => {
+  const token = getState().auth.token;
+  //headers
+  const config = {
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  // iftoken add to headers
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
+  }
+  return config;
 };

@@ -22,7 +22,7 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
   const [username, setUsername] = useState<string | undefined>();
   const [password, setPassword] = useState<string | undefined>();
 
-  const handleusernameChange = (text: string) => {
+  const handleUsernameChange = (text: string) => {
     setUsername(text);
   };
 
@@ -40,12 +40,15 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
   return (
     <Screen>
       <View style={styles.container}>
-        <Avatar size="medium" />
+        <Avatar
+          size="medium"
+          source={{uri: 'https://placeimg.com/80/80/tech'}}
+        />
         <TextInput
           autoCapitalize="none"
           placeholder="Username"
           value={username}
-          onChangeText={handleusernameChange}
+          onChangeText={handleUsernameChange}
           autoCorrect={false}
         />
         <TextInput
