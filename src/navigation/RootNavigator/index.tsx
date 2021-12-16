@@ -4,17 +4,21 @@ import {NavigationContainer} from '@react-navigation/native';
 import AuthStack from 'navigation/AuthStack';
 import MainStack from 'navigation/MainStack';
 import {useTheme} from '../../context';
+import {connect, ConnectedProps} from 'react-redux';
+
+import type {IAuthState} from '../../core/reducers/auth';
 
 const Stack = createNativeStackNavigator();
 
-const RootNavigator = () => {
+interface IRootNavigatorProps extends PropsFromRedux {}
+
+const RootNavigator = ({isAuthenticated}: IRootNavigatorProps) => {
   const {theme, isDark} = useTheme();
-  const user = true;
 
   return (
     <NavigationContainer theme={{colors: theme.colors, dark: isDark}}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {!user ? (
+        {!isAuthenticated ? (
           <Stack.Screen name="AuthStack" component={AuthStack} />
         ) : (
           <Stack.Screen name="MainStack" component={MainStack} />
@@ -23,5 +27,14 @@ const RootNavigator = () => {
     </NavigationContainer>
   );
 };
+const mapStateToProps = (state: IAuthState) => {
+  const {isAuthenticated} = state.auth;
+  return {
+    isAuthenticated,
+  };
+};
 
-export default RootNavigator;
+const connector = connect(mapStateToProps);
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+export default connector(RootNavigator);

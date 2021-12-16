@@ -10,7 +10,12 @@ interface IButtonProps {
   onPress: () => void;
 }
 
-const Button = ({width, background = true, children}: IButtonProps) => {
+const Button = ({
+  width,
+  background = true,
+  onPress,
+  children,
+}: IButtonProps) => {
   const {theme} = useTheme();
   const styles = getStyles(theme);
 
@@ -23,7 +28,10 @@ const Button = ({width, background = true, children}: IButtonProps) => {
   };
 
   return (
-    <TouchableOpacity style={[styles.container, wrapperStyles]}>
+    <TouchableOpacity
+      style={[styles.container, wrapperStyles]}
+      onPress={onPress}
+    >
       <Text style={textStyles}>{children}</Text>
     </TouchableOpacity>
   );
