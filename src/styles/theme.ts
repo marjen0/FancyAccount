@@ -6,6 +6,7 @@ const lightColors = {
   primary: '#003480',
   secondary: '#009FE3',
   accentPrimary: '#FEBA01',
+  label: '#007AFF',
   accentSecondary: '#660700',
 };
 const darkColors = {
@@ -14,6 +15,7 @@ const darkColors = {
   primary: '#003480',
   secondary: '#009FE3',
   accentPrimary: '#FEBA01',
+  label: '#007AFF',
   accentSecondary: '#660700',
 };
 

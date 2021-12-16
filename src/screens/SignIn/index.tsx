@@ -8,13 +8,19 @@ const SignInScreen = () => {
   const {theme} = useTheme();
   const styles = getStyles(theme);
 
+  const handleSubmitPress = () => {
+    console.log('log in');
+  };
+
   return (
     <Screen>
       <View style={styles.container}>
         <Avatar size="medium" />
         <TextInput placeholder="Username" />
         <TextInput placeholder="Password" />
-        <Button>Submit</Button>
+        <Button width={'100%'} onPress={handleSubmitPress}>
+          Submit
+        </Button>
       </View>
     </Screen>
   );

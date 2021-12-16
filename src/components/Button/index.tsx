@@ -5,15 +5,26 @@ import {useTheme} from '../../context';
 
 interface IButtonProps {
   children: ReactNode;
+  width?: number | string;
+  background?: boolean;
+  onPress: () => void;
 }
 
-const Button = ({children}: IButtonProps) => {
+const Button = ({width, background = true, children}: IButtonProps) => {
   const {theme} = useTheme();
   const styles = getStyles(theme);
 
+  const wrapperStyles = {
+    width,
+    backgroundColor: background ? theme.colors.primary : 'transparent',
+  };
+  const textStyles = {
+    color: background ? theme.colors.background : theme.colors.label,
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
-      <Text>{children}</Text>
+    <TouchableOpacity style={[styles.container, wrapperStyles]}>
+      <Text style={textStyles}>{children}</Text>
     </TouchableOpacity>
   );
 };
