@@ -4,12 +4,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ACTION} from '../constants';
 import {ASYNC_STORAGE} from '../../constants';
 
+// ACTION CREATORS
+
 const init = (payload: IAuthInitPayload) => {
   return {
     type: ACTION.AUTH.INIT,
     payload,
   };
 };
+
+// ACTIONS
 
 export const getAuthTokensFromAsyncStorage = () => dispatch => {
   AsyncStorage.multiGet([
@@ -30,6 +34,7 @@ export const login =
   dispatch => {
     console.log('here', username, password);
     const body = {username, password};
+    // TODO move data fetching to seperate file
     axios
       .post('https://vidqjclbhmef.herokuapp.com/credentials', body, {
         headers: {
@@ -47,3 +52,7 @@ export const login =
         console.log(err);
       });
   };
+
+export const logout = () => dispatch => {
+  dispatch({type: ACTION.AUTH.LOGOUT});
+};

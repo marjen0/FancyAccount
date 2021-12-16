@@ -5,17 +5,17 @@ import {Button} from '../../components';
 
 const Stack = createNativeStackNavigator();
 
-const handleLogoutPress = () => {
-  console.log('logout');
-};
+interface IMainStackProps {
+  onLogout: () => void;
+}
 
-const MainStack = () => {
+const MainStack = ({onLogout}: IMainStackProps) => {
   return (
     <Stack.Navigator>
       <Stack.Screen
         options={{
           headerRight: () => (
-            <Button background={false} onPress={handleLogoutPress}>
+            <Button background={false} onPress={onLogout}>
               Logout
             </Button>
           ),

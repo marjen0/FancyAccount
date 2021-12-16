@@ -13,7 +13,7 @@ export interface IAuthState {
 }
 
 const initialState: IAuthState = {
-  isAuthenticated: !!AsyncStorage.getItem(ASYNC_STORAGE.TOKEN),
+  isAuthenticated: false,
   isLoading: false,
   token: null,
   refreshToken: null,
@@ -39,6 +39,14 @@ const reducer = (state = initialState, action: AnyAction) => {
         ...state,
         ...action.payload,
         isAuthenticated: !!action.payload.token,
+      };
+    case ACTION.AUTH.LOGOUT:
+      AsyncStorage.multiRemove([
+        ASYNC_STORAGE.REFRESH_TOKEN,
+        ASYNC_STORAGE.TOKEN,
+      ]);
+      return {
+        ...initialState,
       };
     default:
       return state;

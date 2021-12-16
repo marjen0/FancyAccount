@@ -1,6 +1,7 @@
 export const ACTION = {
   AUTH: {
-    LOGIN_SUCCESS: 'AUTH_LOGIN_SUCCESS',
     INIT: 'AUTH_INIT',
+    LOGIN_SUCCESS: 'AUTH_LOGIN_SUCCESS',
+    LOGOUT: 'AUTH_LOGOUT',
   },
 };

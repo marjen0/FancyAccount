@@ -1,19 +1,27 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import {connect, ConnectedProps} from 'react-redux';
+import {connect, ConnectedProps, MapDispatchToProps} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import AuthStack from '../AuthStack';
 import MainStack from '../MainStack';
 import {useTheme} from '../../context';
-
 import type {IAuthState} from '../../core/reducers/auth';
+import {logout} from '../../core/actions/auth';
 
 const Stack = createNativeStackNavigator();
 
 interface IRootNavigatorProps extends PropsFromRedux {}
 
-const RootNavigator = ({isAuthenticated}: IRootNavigatorProps) => {
+const RootNavigator = ({
+  isAuthenticated,
+  logoutAction,
+}: IRootNavigatorProps) => {
   const {theme, isDark} = useTheme();
+
+  const handleLogoutPress = () => {
+    logoutAction();
+  };
 
   return (
     <NavigationContainer theme={{colors: theme.colors, dark: isDark}}>
@@ -21,7 +29,9 @@ const RootNavigator = ({isAuthenticated}: IRootNavigatorProps) => {
         {!isAuthenticated ? (
           <Stack.Screen name="AuthStack" component={AuthStack} />
         ) : (
-          <Stack.Screen name="MainStack" component={MainStack} />
+          <Stack.Screen name="MainStack">
+            {props => <MainStack {...props} onLogout={handleLogoutPress} />}
+          </Stack.Screen>
         )}
       </Stack.Navigator>
     </NavigationContainer>
@@ -34,7 +44,11 @@ const mapStateToProps = (state: IAuthState) => {
   };
 };
 
-const connector = connect(mapStateToProps);
+const mapDispatchToProps = (dispatch: MapDispatchToProps<any, any>) => ({
+  logoutAction: bindActionCreators(logout, dispatch),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
 export default connector(RootNavigator);
