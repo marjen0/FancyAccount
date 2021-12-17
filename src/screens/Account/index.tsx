@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text, View, Switch} from 'react-native';
+import {Text, View, Switch, ActivityIndicator} from 'react-native';
 import {connect, MapDispatchToProps, ConnectedProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getUser} from '../../core/actions/user';
@@ -16,6 +16,7 @@ const AccountScreen = ({
   lastName,
   phone,
   image,
+  isLoading,
   getUserAction,
 }: IAccountScreenProps) => {
   const {theme, isDark, setIsDark} = useTheme();
@@ -28,6 +29,10 @@ const AccountScreen = ({
   const handleThemeToggle = () => {
     setIsDark(prevState => !prevState);
   };
+
+  if (isLoading) {
+    return <ActivityIndicator style={styles.container} />;
+  }
 
   return (
     <Screen>
@@ -46,8 +51,8 @@ const AccountScreen = ({
 };
 
 const mapStateToProps = (state: IRootState) => {
-  const {address, firstName, lastName, phone, image} = state.user;
-  return {address, firstName, lastName, phone, image};
+  const {address, firstName, lastName, phone, image, isLoading} = state.user;
+  return {address, firstName, lastName, phone, image, isLoading};
 };
 const mapDispatchToProps = (dispatch: MapDispatchToProps<any, any>) => ({
   getUserAction: bindActionCreators(getUser, dispatch),
