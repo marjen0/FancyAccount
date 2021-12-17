@@ -23,11 +23,14 @@
 ## Extra Features
 
 - dark and light themes
+- splash screens
+- app icons
 
 ## Todo
 
 - [ ] improve redux actions types
 - [ ] add sign in form validation
+- [ ] unit tests
 
 # Demo
 

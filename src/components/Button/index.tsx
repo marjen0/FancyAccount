@@ -7,12 +7,14 @@ interface IButtonProps {
   children: ReactNode;
   width?: number | string;
   background?: boolean;
+  disabled?: boolean;
   onPress: () => void;
 }
 
 const Button = ({
   width,
   background = true,
+  disabled = false,
   onPress,
   children,
 }: IButtonProps) => {
@@ -21,7 +23,7 @@ const Button = ({
 
   const wrapperStyles = {
     width,
-    backgroundColor: background ? theme.colors.primary : 'transparent',
+    backgroundColor: background ? theme.colors.accentPrimary : 'transparent',
   };
   const textStyles = {
     color: background ? theme.colors.text : theme.colors.label,
@@ -30,6 +32,7 @@ const Button = ({
   return (
     <TouchableOpacity
       style={[styles.container, wrapperStyles]}
+      disabled={disabled}
       onPress={onPress}
     >
       <Text style={textStyles}>{children}</Text>

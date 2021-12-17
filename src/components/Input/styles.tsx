@@ -7,7 +7,6 @@ export const getStyles = (theme: ITheme) =>
       paddingVertical: 8,
       width: '100%',
       maxWidth: 600,
-      borderColor: theme.colors.border,
       borderWidth: 2,
       borderRadius: theme.roundness,
       marginBottom: 18,

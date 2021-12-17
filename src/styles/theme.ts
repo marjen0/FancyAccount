@@ -7,14 +7,16 @@ const lightColors = {
   accentPrimary: '#FEBA01',
   label: '#007AFF',
   accentSecondary: '#660700',
+  error: '#ff3333',
 };
 const darkColors = {
   ...DarkTheme.colors,
   primary: '#003480',
   secondary: '#009FE3',
-  accentPrimary: '#FEBA01',
+  accentPrimary: '#660700',
   label: '#007AFF',
   accentSecondary: '#660700',
+  error: '#ff3333',
 };
 
 export const getTheme = (isDarkMode: boolean) => ({

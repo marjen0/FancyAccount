@@ -7,6 +7,7 @@ import {IRootState} from '../../core/store';
 import {TextInput, Screen, Button, Avatar} from '../../components';
 import {useTheme} from '../../context';
 import {getStyles} from './styles';
+import {isEmailFormatValid} from '../../utils/validation';
 
 export interface ICredentials {
   username: string;
@@ -22,8 +23,18 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
   const [username, setUsername] = useState<string | undefined>();
   const [password, setPassword] = useState<string | undefined>();
 
+  const [usernameError, setUsernameError] = useState<boolean>(false);
+
   const handleUsernameChange = (text: string) => {
     setUsername(text);
+  };
+
+  const handleUsernameEndEditing = () => {
+    if (!username) {
+      return;
+    }
+    const isValid = isEmailFormatValid(username);
+    setUsernameError(!isValid);
   };
 
   const handlePasswordChange = (text: string) => {
@@ -34,6 +45,7 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
     if (!username || !password) {
       return;
     }
+    setUsernameError(false);
     await loginAction({username, password});
   };
 
@@ -49,7 +61,9 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
           autoCapitalize="none"
           placeholder="Username"
           value={username}
+          error={usernameError}
           onChangeText={handleUsernameChange}
+          onEndEditing={handleUsernameEndEditing}
           autoCorrect={false}
         />
         <TextInput
@@ -61,7 +75,11 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
           autoCorrect={false}
           secureTextEntry
         />
-        <Button width={'100%'} onPress={handleSubmitPress}>
+        <Button
+          width={'100%'}
+          onPress={handleSubmitPress}
+          disabled={!username && !password}
+        >
           Submit
         </Button>
       </View>
