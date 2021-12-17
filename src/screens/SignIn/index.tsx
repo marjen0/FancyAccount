@@ -78,7 +78,7 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
         <Button
           width={'100%'}
           onPress={handleSubmitPress}
-          disabled={!username && !password}
+          disabled={!username && !password && !usernameError}
         >
           Submit
         </Button>
