@@ -29,7 +29,7 @@
 ## Todo
 
 - [ ] improve redux actions types
-- [ ] add sign in form validation
+- [x] add sign in form validation
 - [ ] unit tests
 
 # Demo
