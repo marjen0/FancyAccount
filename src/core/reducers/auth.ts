@@ -34,6 +34,17 @@ const reducer = (state = initialState, action: AnyAction) => {
         isAuthenticated: true,
         isLoading: false,
       };
+    case ACTION.AUTH.LOGIN_START:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case ACTION.AUTH.LOGIN_FAIL:
+      return {
+        ...state,
+        isLoading: false,
+      };
+
     case ACTION.AUTH.INIT:
       return {
         ...state,

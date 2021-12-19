@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import {Text, View, Switch, ActivityIndicator} from 'react-native';
+import {Text, View, Switch} from 'react-native';
 import {connect, MapDispatchToProps, ConnectedProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Screen, Avatar} from '@components';
+import {Screen, Avatar, ActivityIndicator} from '@components';
 import {useTheme} from '@context';
 import {getUser} from '@core/actions/user';
 import {IRootState} from '@core/store';
@@ -31,7 +31,7 @@ const AccountScreen = ({
   };
 
   if (isLoading) {
-    return <ActivityIndicator style={styles.container} />;
+    return <ActivityIndicator />;
   }
 
   return (

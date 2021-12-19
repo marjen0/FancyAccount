@@ -6,7 +6,13 @@ import {useTheme} from '@context';
 import {isEmailFormatValid} from '@utils/validation';
 import {login} from '@core/actions/auth';
 import {IRootState} from '@core/store';
-import {TextInput, Screen, Button, Avatar} from '@components';
+import {
+  TextInput,
+  Screen,
+  Button,
+  Avatar,
+  ActivityIndicator,
+} from '@components';
 import {getStyles} from './styles';
 
 export interface ICredentials {
@@ -16,7 +22,7 @@ export interface ICredentials {
 
 interface ISignInScreenProps extends PropsFromRedux {}
 
-const SignInScreen = ({loginAction}: ISignInScreenProps) => {
+const SignInScreen = ({loginAction, isLoading}: ISignInScreenProps) => {
   const {theme} = useTheme();
   const styles = getStyles(theme);
 
@@ -48,6 +54,10 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
     setUsernameError(false);
     await loginAction({username, password});
   };
+
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <Screen>
@@ -88,10 +98,9 @@ const SignInScreen = ({loginAction}: ISignInScreenProps) => {
 };
 
 const mapStateToProps = (state: IRootState) => {
-  const {isLoading, isAuthenticated} = state.auth;
+  const {isLoading} = state.auth;
   return {
     isLoading,
-    isAuthenticated,
   };
 };
 const mapDispatchToProps = (dispatch: MapDispatchToProps<any, any>) => ({

@@ -13,6 +13,14 @@ const init = (payload: IAuthInitPayload) => {
   };
 };
 
+const loginStart = () => ({
+  type: ACTION.AUTH.LOGIN_START,
+});
+
+const loginFail = () => ({
+  type: ACTION.AUTH.LOGIN_FAIL,
+});
+
 // ACTIONS
 
 export const getAuthTokensFromAsyncStorage = () => dispatch => {
@@ -32,6 +40,7 @@ export const getAuthTokensFromAsyncStorage = () => dispatch => {
 export const login =
   ({username, password}: {username: string; password: string}) =>
   dispatch => {
+    dispatch(loginStart());
     const data = {username, password};
     // TODO move data fetching to separate file
     axios
@@ -41,13 +50,13 @@ export const login =
         },
       })
       .then(res => {
-        console.log(res);
         dispatch({
           type: ACTION.AUTH.LOGIN_SUCCESS,
           payload: res.data,
         });
       })
       .catch((err: AxiosError) => {
+        dispatch(loginFail());
         console.log(err);
       });
   };

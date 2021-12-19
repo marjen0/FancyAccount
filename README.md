@@ -32,7 +32,7 @@
 - [ ] improve redux actions types
 - [x] add sign in form validation
 - [ ] unit tests
-- [ ] display activity indicators while data is being fetched
+- [x] display activity indicators while data is being fetched
 
 # Demo
 
