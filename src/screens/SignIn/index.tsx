@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import {connect, MapDispatchToProps, ConnectedProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {login} from '../../core/actions/auth';
-import {IRootState} from '../../core/store';
-import {TextInput, Screen, Button, Avatar} from '../../components';
-import {useTheme} from '../../context';
+import {useTheme} from '@context';
+import {isEmailFormatValid} from '@utils/validation';
+import {login} from '@core/actions/auth';
+import {IRootState} from '@core/store';
+import {TextInput, Screen, Button, Avatar} from '@components';
 import {getStyles} from './styles';
-import {isEmailFormatValid} from '../../utils/validation';
 
 export interface ICredentials {
   username: string;

@@ -1,7 +1,6 @@
 import React from 'react';
 import {Image, ImageSourcePropType} from 'react-native';
-
-import {useTheme} from '../../context';
+import {useTheme} from '@context';
 import {getStyles, getWidth} from './styles';
 
 export type AvatarSize = 'icon' | 'small' | 'medium' | 'large' | 'stretch';

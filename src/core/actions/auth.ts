@@ -1,8 +1,8 @@
 // @ts-nocheck
 import axios, {AxiosError} from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {ACTION} from '../constants';
-import {ASYNC_STORAGE} from '../../constants';
+import {ASYNC_STORAGE} from '@constants';
+import {ACTION} from '@core/constants';
 
 // ACTION CREATORS
 

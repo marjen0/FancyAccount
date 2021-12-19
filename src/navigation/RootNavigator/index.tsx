@@ -3,11 +3,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {connect, ConnectedProps, MapDispatchToProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {useTheme} from '@context';
+import {IRootState} from '@core/store';
+import {logout} from '@core/actions/auth';
 import AuthStack from '../AuthStack';
 import MainStack from '../MainStack';
-import {useTheme} from '../../context';
-import {IRootState} from '../../core/store';
-import {logout} from '../../core/actions/auth';
 
 const Stack = createNativeStackNavigator();
 

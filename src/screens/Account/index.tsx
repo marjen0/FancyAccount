@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import {Text, View, Switch, ActivityIndicator} from 'react-native';
 import {connect, MapDispatchToProps, ConnectedProps} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getUser} from '../../core/actions/user';
-import {IRootState} from '../../core/store';
-import {Screen, Avatar} from '../../components';
-import {useTheme} from '../../context';
+import {Screen, Avatar} from '@components';
+import {useTheme} from '@context';
+import {getUser} from '@core/actions/user';
+import {IRootState} from '@core/store';
 import {getStyles} from './styles';
 
 interface IAccountScreenProps extends PropsFromRedux {}

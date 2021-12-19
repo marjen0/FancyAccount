@@ -6,8 +6,8 @@ import React, {
   SetStateAction,
 } from 'react';
 import {useColorScheme} from 'react-native';
-import {createContext} from '../../hooks';
-import {getTheme} from '../../styles/theme';
+import {createContext} from '@hooks';
+import {getTheme} from '@styles/theme';
 
 interface IThemeContextProps {
   children: ReactNode;

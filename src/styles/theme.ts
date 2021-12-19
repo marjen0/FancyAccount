@@ -19,7 +19,7 @@ const darkColors = {
   error: '#ff3333',
 };
 
-export const getTheme = (isDarkMode: boolean) => ({
+export const getTheme = (isDarkMode: boolean): ITheme => ({
   colors: isDarkMode ? darkColors : lightColors,
   roundness: 4,
 });

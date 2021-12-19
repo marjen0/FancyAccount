@@ -1,6 +1,6 @@
 import {AnyAction} from 'redux';
 
-import {ACTION} from '../constants';
+import {ACTION} from '@core/constants';
 
 export interface IUserState {
   isLoading: boolean;

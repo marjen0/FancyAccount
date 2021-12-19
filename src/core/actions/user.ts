@@ -1,7 +1,7 @@
 // @ts-nocheck
 import axios, {AxiosError} from 'axios';
 
-import {ACTION} from '../constants';
+import {ACTION} from '@core/constants';
 import {tokenConfig} from './auth';
 
 // ACTION CREATORS

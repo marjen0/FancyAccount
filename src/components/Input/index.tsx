@@ -1,6 +1,6 @@
 import React from 'react';
 import {TextInput as RNTextInput, TextInputProps} from 'react-native';
-import {useTheme} from '../../context';
+import {useTheme} from '@context';
 import {getStyles} from './styles';
 
 interface ITextInputProps extends TextInputProps {

@@ -40,9 +40,15 @@
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "./src" /* Base directory to resolve non-absolute module names. */,
     "paths": {
-      "@screens": ["./screens"],
-      "@components": ["./components"],
-      "@navigation": ["./navigation"]
+      "@utils/*": ["utils/*"],
+      "@styles/*": ["styles/*"],
+      "@core/*": ["core/*"],
+      "@screens": ["screens"],
+      "@components": ["components"],
+      "@navigation": ["navigation"],
+      "@context": ["context"],
+      "@constants": ["constants"],
+      "@hooks": ["hooks"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     "typeRoots": [
@@ -71,6 +77,5 @@
     "metro.config.js",
     "jest.config.js"
   ],
-  "include": ["./src/**/*", "typings"],
-  "files": ["./typings/typings.d.ts"]
+  "include": ["./src/**/*", "./typings"]
 }

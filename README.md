@@ -25,6 +25,7 @@
 - dark and light themes
 - splash screens
 - app icons
+- path aliases for cleaner imports
 
 ## Todo
 

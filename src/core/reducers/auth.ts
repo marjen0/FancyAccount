@@ -1,7 +1,7 @@
 import {AnyAction} from 'redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {ACTION} from '../constants';
-import {ASYNC_STORAGE} from '../../constants';
+import {ASYNC_STORAGE} from '@constants';
+import {ACTION} from '@core/constants';
 
 export interface IAuthState {
   isAuthenticated: boolean;

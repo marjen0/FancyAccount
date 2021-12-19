@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {AccountScreen} from '../../screens';
-import {Button} from '../../components';
+import {AccountScreen} from '@screens';
+import {Button} from '@components';
 
 const Stack = createNativeStackNavigator();
 

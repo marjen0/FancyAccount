@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import {TouchableOpacity, Text} from 'react-native';
+import {useTheme} from '@context';
 import {getStyles} from './styles';
-import {useTheme} from '../../context';
 
 interface IButtonProps {
   children: ReactNode;
